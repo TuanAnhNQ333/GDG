@@ -9,7 +9,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class SignupScreen extends StatefulWidget {
   final VoidCallback show;
-  SignupScreen(this.show, {super.key});
+  const SignupScreen(this.show, {super.key});
 
   @override
   State<SignupScreen> createState() => _SignupScreenState();
@@ -38,6 +38,7 @@ class _SignupScreenState extends State<SignupScreen> {
     bio.dispose();
   }
 
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
       resizeToAvoidBottomInset: false,
@@ -52,9 +53,9 @@ class _SignupScreenState extends State<SignupScreen> {
             SizedBox(width: 96.w, height: 70.h),
             InkWell(
               onTap: () async {
-                File _imagefilee = await ImagePickerr().uploadImage('gallery');
+                File imagefilee = await ImagePickerr().uploadImage('gallery');
                 setState(() {
-                  _imageFile = _imagefilee;
+                  _imageFile = imagefilee;
                 });
               },
               child: CircleAvatar(
@@ -63,7 +64,7 @@ class _SignupScreenState extends State<SignupScreen> {
                 child: _imageFile == null
                     ? CircleAvatar(
                         radius: 34.r,
-                        backgroundImage: AssetImage('images/person.png'),
+                        backgroundImage: const AssetImage('images/person.png'),
                         backgroundColor: Colors.grey.shade200,
                       )
                     : CircleAvatar(

@@ -53,7 +53,7 @@ class _ExploreScreenState extends State<ExploreScreen> {
                             );
                           },
                           child: Container(
-                            decoration: BoxDecoration(
+                            decoration: const BoxDecoration(
                               color: Colors.grey,
                             ),
                             child: CachedImage(
@@ -161,7 +161,7 @@ class _ExploreScreenState extends State<ExploreScreen> {
                   child: TextField(
                     onChanged: (value) {
                       setState(() {
-                        if (value.length > 0) {
+                        if (value.isNotEmpty) {
                           show = false;
                         } else {
                           show = true;

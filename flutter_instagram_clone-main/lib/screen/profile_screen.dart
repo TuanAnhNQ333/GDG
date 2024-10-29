@@ -76,9 +76,9 @@ class _ProfileScreenState extends State<ProfileScreen> {
                     .snapshots(),
                 builder: (context, snapshot) {
                   if (!snapshot.hasData) {
-                    return SliverToBoxAdapter(
+                    return const SliverToBoxAdapter(
                         child:
-                            const Center(child: CircularProgressIndicator()));
+                            Center(child: CircularProgressIndicator()));
                   }
                   post_lenght = snapshot.data!.docs.length;
                   return SliverGrid(
@@ -237,8 +237,8 @@ class _ProfileScreenState extends State<ProfileScreen> {
                         color: yourse ? Colors.grey.shade400 : Colors.blue),
                   ),
                   child: yourse
-                      ? Text('Edit Your Profile')
-                      : Text(
+                      ? const Text('Edit Your Profile')
+                      : const Text(
                           'Follow',
                           style: TextStyle(color: Colors.white),
                         ),
@@ -269,7 +269,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                             borderRadius: BorderRadius.circular(5.r),
                             border: Border.all(color: Colors.grey.shade200),
                           ),
-                          child: Text('Unfollow')),
+                          child: const Text('Unfollow')),
                     ),
                   ),
                   SizedBox(width: 8.w),
@@ -283,7 +283,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                         borderRadius: BorderRadius.circular(5.r),
                         border: Border.all(color: Colors.grey.shade200),
                       ),
-                      child: Text(
+                      child: const Text(
                         'Message',
                         style: TextStyle(color: Colors.black),
                       ),

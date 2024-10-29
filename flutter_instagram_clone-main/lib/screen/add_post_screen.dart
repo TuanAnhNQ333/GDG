@@ -41,9 +41,9 @@ class _AddPostScreenState extends State<AddPostScreen> {
       for (var asset in media) {
         temp.add(
           FutureBuilder(
-            future: asset.thumbnailDataWithSize(ThumbnailSize(200, 200)),
+            future: asset.thumbnailDataWithSize(const ThumbnailSize(200, 200)),
             builder: (context, snapshot) {
-              if (snapshot.connectionState == ConnectionState.done)
+              if (snapshot.connectionState == ConnectionState.done) {
                 return Container(
                   child: Stack(
                     children: [
@@ -56,6 +56,7 @@ class _AddPostScreenState extends State<AddPostScreen> {
                     ],
                   ),
                 );
+              }
 
               return Container();
             },
@@ -78,6 +79,7 @@ class _AddPostScreenState extends State<AddPostScreen> {
 
   int indexx = 0;
 
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
       resizeToAvoidBottomInset: false,

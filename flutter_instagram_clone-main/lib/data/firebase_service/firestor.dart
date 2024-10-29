@@ -34,7 +34,7 @@ class Firebase_Firestor {
     try {
       final user = await _firebaseFirestore
           .collection('users')
-          .doc(UID != null ? UID : _auth.currentUser!.uid)
+          .doc(UID ?? _auth.currentUser!.uid)
           .get();
       final snapuser = user.data()!;
       return Usermodel(
@@ -54,8 +54,8 @@ class Firebase_Firestor {
     required String caption,
     required String location,
   }) async {
-    var uid = Uuid().v4();
-    DateTime data = new DateTime.now();
+    var uid = const Uuid().v4();
+    DateTime data = DateTime.now();
     Usermodel user = await getUser();
     await _firebaseFirestore.collection('posts').doc(uid).set({
       'postImage': postImage,
@@ -75,8 +75,8 @@ class Firebase_Firestor {
     required String video,
     required String caption,
   }) async {
-    var uid = Uuid().v4();
-    DateTime data = new DateTime.now();
+    var uid = const Uuid().v4();
+    DateTime data = DateTime.now();
     Usermodel user = await getUser();
     await _firebaseFirestore.collection('reels').doc(uid).set({
       'reelsvideo': video,
@@ -96,7 +96,7 @@ class Firebase_Firestor {
     required String type,
     required String uidd,
   }) async {
-    var uid = Uuid().v4();
+    var uid = const Uuid().v4();
     Usermodel user = await getUser();
     await _firebaseFirestore
         .collection(type)
